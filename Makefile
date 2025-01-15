@@ -48,6 +48,9 @@ build-darwin:
 build-linux:
 	@echo "Building Linux ${VERSION}"
 	@GOOS=linux GOARCH=amd64 go build -buildmode=pie -ldflags="-X main.Version=${VERSION} -w" -o bin/${NAME}-linux-x64 main.go		
+build-linux-arm:
+	@echo "Building Linux-arm ${VERSION}"
+	@GOOS=linux GOARCH=arm go build -buildmode=pie -ldflags="-X main.Version=${VERSION} -w" -o bin/${NAME}-linux-arm main.go
 .PHONY: build-windows
 build-windows:
 	@echo "Building Windows ${VERSION}"

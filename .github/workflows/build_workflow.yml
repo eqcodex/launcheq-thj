@@ -36,6 +36,7 @@ jobs:
       run: |
         make build-windows
         make build-linux
+        make build-linux-arm
 
     - name: Build FileList
       run: |
@@ -67,5 +68,6 @@ jobs:
         files: |
           bin/launcheq.exe
           bin/launcheq-linux-x64
+          bin/launcheq-linux-arm
           bin/launcheq-hash.txt
           rof/filelist_rof.yml
