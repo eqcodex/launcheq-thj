@@ -431,6 +431,7 @@ func (c *Client) downloadPatchFile(entry FileEntry) error {
 	name := strings.ReplaceAll(entry.Name, "\\", "/")
 
 	url := fmt.Sprintf("%s/%s/%s", c.cacheFileList.DownloadPrefix, c.clientVersion, name)
+	url = strings.ReplaceAll(url, "rof//rof", "rof")
 	resp, err := client.Get(url)
 	if err != nil {
 		return fmt.Errorf("download %s: %w", url, err)
