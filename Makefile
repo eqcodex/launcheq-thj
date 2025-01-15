@@ -43,14 +43,14 @@ build-prepare:
 .PHONY: build-darwin
 build-darwin:
 	@echo "Building darwin ${VERSION}"
-	@GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -buildmode=pie -ldflags="-X main.Version=${VERSION} -s -w" -o bin/${NAME}-darwin-x64 main.go
+	@GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -buildmode=pie -ldflags="-X main.Version=${VERSION} -X main.PatcherUrl=${PATCHER_URL} -s -w" -o bin/${NAME}-darwin-x64 main.go
 .PHONY: build-linux
 build-linux:
 	@echo "Building Linux ${VERSION}"
-	@GOOS=linux GOARCH=amd64 go build -buildmode=pie -ldflags="-X main.Version=${VERSION} -w" -o bin/${NAME}-linux-x64 main.go		
+	@GOOS=linux GOARCH=amd64 go build -buildmode=pie -ldflags="-X main.Version=${VERSION} -X main.PatcherUrl=${PATCHER_URL}  -w" -o bin/${NAME}-linux-x64 main.go		
 build-linux-arm:
 	@echo "Building Linux-arm ${VERSION}"
-	@GOOS=linux GOARCH=arm go build -ldflags="-X main.Version=${VERSION} -w" -o bin/${NAME}-linux-arm main.go
+	@GOOS=linux GOARCH=arm go build -ldflags="-X main.Version=${VERSION} -X main.PatcherUrl=${PATCHER_URL}  -w" -o bin/${NAME}-linux-arm main.go
 .PHONY: build-windows
 build-windows:
 	@echo "Building Windows ${VERSION}"

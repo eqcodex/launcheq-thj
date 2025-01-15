@@ -37,6 +37,7 @@ jobs:
         make build-windows
         make build-linux
         make build-linux-arm
+        make build-darwin
 
     - name: Build FileList
       run: |
@@ -69,5 +70,6 @@ jobs:
           bin/launcheq.exe
           bin/launcheq-linux-x64
           bin/launcheq-linux-arm
+          bin/launcheq-darwin
           bin/launcheq-hash.txt
           rof/filelist_rof.yml
